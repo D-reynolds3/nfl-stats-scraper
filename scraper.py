@@ -44,15 +44,19 @@ def scrape_stats(stat_type: str, year: int) -> pd.DataFrame:
 
 
 def save_stats(df: pd.DataFrame, stat_type: str, year: int):
-    """Save DataFrame to CSV inside /data directory."""
-    os.makedirs("data", exist_ok=True)
-    filepath = f"data/{stat_type}_{year}.csv"
+    # Create data/year folder if it doesn't exist
+    year_folder = os.path.join("data", str(year))
+    os.makedirs(year_folder, exist_ok=True)
+
+    # Save inside that folder
+    filepath = os.path.join(year_folder, f"{stat_type}.csv")
     df.to_csv(filepath, index=False)
     print(f"Saved {stat_type} stats to {filepath}")
 
 
+
 def main():
-    year = 2024
+    year = 2025
     stat_types = ["passing", "rushing", "receiving", "defense"]
 
     for stat in stat_types:
