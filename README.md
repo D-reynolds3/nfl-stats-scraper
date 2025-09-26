@@ -12,6 +12,3 @@ Data is saved as CSV files for analysis and visualization.
 - Easy to extend for other years/stat categories
 - Includes a sample Jupyter Notebook with basic analysis & visualization
 
----
-
-## 📂 Project Structure
